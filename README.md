@@ -17,7 +17,7 @@ Zenith Digital University is a frontend development project designed to showcase
 
 ## 📂 Project Structure
 ```text
-/Zenith-Digital-University
+/My1stwebsite
 │
 ├── index.htm          # Main landing page structure
 └── CSS/
