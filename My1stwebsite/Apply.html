@@ -1,0 +1,58 @@
+<section id="apply" class="container">
+    <div class="form-container" style="max-width: 600px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <h2 style="color: #e31515; text-align: center; margin-bottom: 20px;">Admission Application Form</h2>
+        
+        <form action="https://formsubmit.co/rajsen1016@gmail.com" method="POST" class="flex-column-form">
+            
+            <label>Full Name</label>
+            <input type="text" name="full_name" placeholder="As per Passport/HSC Certificate" required>
+            <br>
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="e.g. rajsen1016@gmail.com" required>
+            <br>
+
+            <label>Desired Course</label>
+            <select name="course" required>
+                <option value="">Select a Program...</option>
+                <option value="bsc_ai">BSc in AI Architecture (JINNN Campus)</option>
+                <option value="dip_cloud">Diploma in Cloud Computing (KIM Campus)</option>
+                <option value="msc_finance">Master of Digital Finance (Shar Campus)</option>
+                <option value="pathway">Pathway Diploma</option>
+            </select>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+                <div>
+                    <label>HSC GPA</label>
+                    <input type="number" step="0.01" name="gpa" placeholder="e.g. 3.79" required>
+                </div>
+                <div>
+                    <label>PTE Overall Score</label>
+                    <input type="number" name="pte" placeholder="e.g. 48" required>
+                </div>
+            </div>
+
+            <label style="margin-top: 15px; display: block;">Statement of Purpose (SOP)</label>
+            <textarea name="sop" rows="6" placeholder="Tell us about your career goals and interest in IT..."></textarea>
+
+            <label>Upload Academic Transcript (PDF)</label>
+            <input type="file" name="transcript" accept=".pdf,.jpg,.png">
+
+            <input type="hidden" name="_captcha" value="false">
+
+            <button type="submit" class="button" style="width: 100%; margin-top: 20px;">
+                <div class="wrap">
+                    <p><span>Submit Application</span><span>Send to Admissions</span></p>
+                </div>
+            </button>
+        </form>
+    </div>
+</section>
+
+<footer id="main-footer">
+    <div class="container">
+        <div style="border: 1px dashed #e31515; padding: 15px; margin-bottom: 20px;">
+            <p><strong>DISCLAIMER:</strong> Zenith Digital University is a <strong>fake university portal</strong>. This admission form is a frontend demonstration created by <strong>Raj</strong> and does not process real university enrollments.</p>
+        </div>
+        <p>&copy; 2026 Zenith Digital University | Designed on Arch Linux</p>
+    </div>
+</footer>
