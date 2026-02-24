@@ -30,7 +30,7 @@ Built and maintained on an **Arch Linux x86_64** environment.
 - `JavaScript/logic.js`: Filtering logic and modal pop-up handlers.
 
 ## 🎓 Career Context
-This repository serves as a practical demonstration of my technical skills in **Web Development** and **Information Systems**. It reflects my readiness for a Bachelor’s pathway in Australia, showcasing my ability to:
+This repository serves as a practical demonstration of my technical skills in **Web Development** and **Information Systems** showcasing my ability to:
 - Architect structured data displays.
 - Manage live deployments.
 - Work within a Linux-based development ecosystem.
