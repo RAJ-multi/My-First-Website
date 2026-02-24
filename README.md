@@ -1,7 +1,6 @@
 # 🏛️ Zenith Digital University
 > **A University Portal Demo Project**
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-netlify-id-here/deploy-status)](https://raj-zenith-digital-university.netlify.app/)
 [![GitHub license](https://img.shields.io/github/license/RAJ-multi/My-First-Website?style=for-the-badge)](https://github.com/RAJ-multi/My-First-Website/blob/main/LICENSE)
 [![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)](https://archlinux.org/)
 
