@@ -1,46 +1,80 @@
-# 🏛️ Zenith Digital University
-> **A University Portal Demo Project**
+🎓 Zenith Digital University (ZDU)
 
-[![GitHub license](https://img.shields.io/github/license/RAJ-multi/My-First-Website?style=for-the-badge)](https://github.com/RAJ-multi/My-First-Website/blob/main/LICENSE)
-[![Arch Linux](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)](https://archlinux.org/)
+Architecting the Future of Information Sciences
 
-## 🌟 Project Overview
-Zenith Digital University is a high-fidelity frontend practice project designed to simulate a real-world university portal. This project was developed as part of my portfolio for admission to Information Science programs in Australia (Massey/AUT/VU).
+🚀 Project Overview
 
-**🔗 Live Demo:** [https://raj-zenith-digital-university.netlify.app/](https://raj-zenith-digital-university.netlify.app/)
+Zenith Digital University is a high-fidelity, multi-page frontend architecture project. It serves as a "Concept University" portal designed specifically for students in the South Asia to Oceania (Australia/NZ) educational pathway.
 
-## 🚀 Key Features
-- **Dynamic Course Filtering:** Sort programs by Undergraduate, Postgraduate, and PhD levels, as well as by Faculty (Science, Commerce, Arts).
-- **Multi-Campus Support:** Includes specialized campuses: **JINNN**, **KIM**, and **Shar**.
-- **Integrated Admission System:** A functional application form that collects student data (PTE scores, GPA) and routes it via FormSubmit.
-- **Responsive Design:** Optimized for 15-inch displays (IdeaPad Slim 3) and mobile browsers.
-- **Professional Disclaimer:** Clearly marked as a "Fake University" project to maintain academic integrity.
+This project demonstrates professional-grade CSS layout management, cinematic media integration, and a sophisticated user journey from exploration to admission.
 
-## 🛠️ Tech Stack & Environment
-Built and maintained on an **Arch Linux x86_64** environment.
+🐧 Developer Infrastructure
 
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
+Built with precision on a specialized power-user environment:
 
-## 📁 File Structure
-- `Home.html`: Main landing page and university introduction.
-- `Apply.html`: Admission portal and student registration form.
-- `CSS/Style.css`: Custom professional styles including a 50th-floor architectural aesthetic.
-- `JavaScript/logic.js`: Filtering logic and modal pop-up handlers.
+OS: Arch Linux x86_64
 
-## 🎓 Career Context
-This repository serves as a practical demonstration of my technical skills in **Web Development** and **Information Systems** showcasing my ability to:
-- Architect structured data displays.
-- Manage live deployments.
-- Work within a Linux-based development ecosystem.
+Kernel: Linux 6.18.8-3-cachyos
 
----
+Desktop Environment: KDE Plasma 6.5.5 on Wayland
 
-## ⚠️ Disclaimer
-**Zenith Digital University is a fictional institution.** This website is a frontend development practice project created by **Raj** and is NOT a real educational institution.
+Hardware: 12th Gen Intel i5-12450H | Intel UHD Graphics
 
----
+Terminal/Editor: Custom Linux workflow for manual asset management.
 
-### 📫 Connect with Me
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rajsen1016@gmail.com)
+🛠️ Technical Deep-Dive
+
+1. Cinematic User Experience
+
+Dynamic Backgrounds: Implemented optimized video layers using Cloudinary CDN.
+
+Glassmorphism Design: Custom CSS backdrop-filter effects on content containers for a modern, transparent aesthetic.
+
+Responsive Architecture: Flexbox and CSS Grid systems that adapt from 4K monitors down to mobile viewports.
+
+2. Dynamic Academic Explorer (Course.html)
+
+JavaScript Filtering: A custom client-side engine that allows users to filter university programs by study level (Diploma, BSc, MSc, PhD) in real-time.
+
+Interaction Design: Hover-state animations and badge-based categorization.
+
+3. Lead Capture Engine (Apply.html & Contact.html)
+
+FormSubmit API Integration: A serverless backend implementation that captures Name, Email, GPA, and PTE scores directly to the developer's inbox.
+
+Validation: Frontend-enforced required fields and specific email formats.
+
+📁 File Structure
+
+.
+├── index.html          # Cinematic landing page
+├── Home.html           # Main university dashboard
+├── aboutus.html        # Philosophy & Linux-influence page
+├── Course.html         # JS-driven Course Explorer
+├── Apply.html          # Admissions Pipeline form
+├── Contact Us.html     # Lead generation / "Message the Dean"
+└── CSS/
+    └── Style.css       # Centralized design system
+
+
+🎨 Design Philosophy
+
+Authority Palette: Deep Crimson (#e31515) representing university tradition.
+
+Tech Accents: Slate Zinc and Cyan for a modern "Power User" feel.
+
+Typography: Inter/Sans-Serif stack for maximum readability across high-DPI displays.
+
+⚠️ Portfolio Disclaimer
+
+Zenith Digital University is a fictional demonstration project. It was created by Pritom Sen (Raj) for technical practice. It is not a real educational institution. All admission forms and course descriptions are for demonstration and portfolio purposes only.
+
+📬 Connectivity
+
+Lead Architect: Pritom Sen (Raj)
+
+Education Target: Incoming Student at Victoria University, Australia 🇦🇺
+
+Email: rajsen1016@gmail.com
+
+Developed with ❤️ and sudo on Arch Linux.
