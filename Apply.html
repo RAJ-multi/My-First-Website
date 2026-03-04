@@ -1,58 +1,346 @@
-<section id="apply" class="container">
-    <div class="form-container" style="max-width: 600px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        <h2 style="color: #e31515; text-align: center; margin-bottom: 20px;">Admission Application Form</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Digital University | Admissions</title>
+    <link rel="stylesheet" type="text/css" href="CSS/Style.css">
+    <style>
+        /* Modern Reset & Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f4;
+        }
+
+       #Header {
+    background-color: #e31515;
+    color: #eae2e2;
+    opacity: 0.9;
+    padding: 10px 20px;
+    text-align: left;
+    display: flex;       
+    align-items: center; 
+    background-image: url(https://i.postimg.cc/hjDYmpxB/lucid-origin-A-realistic-modern-university-campus-during-daytime-with-students-walking-studyi-0.jpg);
+    background-size: center;
+}
+
+.logo {
+    display: block; 
+    height: 180px; 
+    width: auto;
+    margin-left: auto;
+}
+#navbar {
+    background: #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0; /* Vertical breathing room */
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 15px; /* Space between buttons */
+}
+
+/* Turning the links into buttons */
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 10px 20px; /* Makes the click area larger */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth hover transition */
+    display: inline-block;
+}
+
+/* Hover State (The "Press" feel) */
+#navbar ul li a:hover {
+    background-color: #e31515; /* University Red background */
+    color: white;
+    transform: translateY(-2px); /* Lifts the button slightly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow on hover */
+}
+
+/* Active State (When clicking) */
+#navbar ul li a:active {
+    transform: translateY(0); /* Pushes it back down when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+        #showcase {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px 20px;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            filter: brightness(0.4);
+        }
+
+        /* Form Container - Glassmorphism */
+        .form-container {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 550px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .flex-column-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .flex-column-form input, 
+        .flex-column-form select, 
+        .flex-column-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        /* --- THE SPECIAL DYNAMIC BUTTON --- */
+        .dynamic-btn {
+            width: 100%;
+            position: relative;
+            height: 3.5em;
+            border: 3px ridge #e31515;
+            outline: none;
+            background-color: transparent;
+            color: #e31515;
+            transition: 0.5s;
+            border-radius: 0.3em;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .dynamic-btn .btn-text { transition: 0.4s; display: block; }
+
+
+.dynamic-btn.submit-variant::before {
+    content: "SUBMIT APPLICATION";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.4s;
+    color: white;
+    z-index: 2;
+    white-space: nowrap;
+}
+
+/* Also ensure the hover transition only hides the text on the submit button */
+.dynamic-btn.submit-variant:hover .btn-text {
+    opacity: 0;
+}
+
+        .mask-top, .mask-bottom {
+            content: "";
+            position: absolute;
+            left: 3%;
+            width: 94%;
+            height: 35%;
+            background-color: #fff; /* Matches form background */
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .mask-top { top: -8px; }
+        .mask-bottom { bottom: -8px; }
+
+        .dynamic-btn:hover .mask-top, 
+        .dynamic-btn:hover .mask-bottom { transform: scaleX(0); }
+
+        .dynamic-btn:hover {
+            box-shadow: inset 0px 0px 25px #e31515;
+            background-color: #e31515;
+            color: transparent;
+        }
+
+        .dynamic-btn:hover::before { transform: translate(-50%, -50%) scale(1); }
+
+        /* --- THANK YOU MESSAGE & LOADING --- */
+        #thank-you-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        #loader {
+            display: none;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #e31515;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        #main-footer {
+            background: #111;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+    </style>
+</head> 
+<body>
+    <header id="Header">
+        <div class="container">
+            <img src="https://i.postimg.cc/L6KP835s/Zenith-Digital-University.png" alt="Zenith Logo" class="logo">
+        </div>
+    </header>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="showcase">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="https://res.cloudinary.com/dyp65awna/video/upload/hailuo-2_3_A_cinematic_realistic_video_of_a_modern_university_campus_during_daytime_with_st-0_zsbpmu.mp4" type="video/mp4">
+        </video>
         
-        <form action="https://formsubmit.co/rajsen1016@gmail.com" method="POST" class="flex-column-form">
-            
-            <label>Full Name</label>
-            <input type="text" name="full_name" placeholder="As per Passport/HSC Certificate" required>
-            <br>
-            <label>Email Address</label>
-            <input type="email" name="email" placeholder="e.g. rajsen1016@gmail.com" required>
-            <br>
+        <div class="form-container">
+            <div id="form-content">
+                <h2 style="color: #e31515; text-align: center; margin-top: 0;">Admission Form</h2>
+                <p style="text-align: center; color: #666; margin-bottom: 30px;">Showcase Your Research at Zenith Digital University.</p>
+                
+                <form id="admissionForm" action="https://formsubmit.co/rajsen1016@gmail.com" method="POST" class="flex-column-form" enctype="multipart/form-data">
+                    <label>Full Name</label>
+                    <input type="text" name="full_name" placeholder="As per Passport" required>
 
-            <label>Desired Course</label>
-            <select name="course" required>
-                <option value="">Select a Program...</option>
-                <option value="bsc_ai">BSc in AI Architecture (JINNN Campus)</option>
-                <option value="dip_cloud">Diploma in Cloud Computing (KIM Campus)</option>
-                <option value="msc_finance">Master of Digital Finance (Shar Campus)</option>
-                <option value="pathway">Pathway Diploma</option>
-            </select>
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="rajsen1016@gmail.com" required>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
-                <div>
-                    <label>HSC GPA</label>
-                    <input type="number" step="0.01" name="gpa" placeholder="e.g. 3.79" required>
-                </div>
-                <div>
-                    <label>PTE Overall Score</label>
-                    <input type="number" name="pte" placeholder="e.g. 48" required>
-                </div>
+                    <label>Desired Course</label>
+                    <select name="course" required>
+                        <option value="">Select a Program...</option>
+                        <option value="BSc in AI Architecture">BSc in AI Architecture</option>
+                        <option value="Diploma in Cloud Computing">Diploma in Cloud Computing</option>
+                        <option value="Master of Digital Finance">Master of Digital Finance</option>
+                    </select>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label>HSC GPA</label>
+                            <input type="number" step="0.01" name="gpa" placeholder="3.79" required>
+                        </div>
+                        <div>
+                            <label>PTE Score</label>
+                            <input type="number" name="pte" placeholder="48" required>
+                        </div>
+                    </div>
+
+                    <label>Statement of Purpose</label>
+                    <textarea name="sop" rows="3" placeholder="Why IT?"></textarea>
+
+                    <label>Upload Documents as far as you can</label>
+                    <input type="file" name="attachment" accept=".pdf, .docx, .jpg, .png">
+
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <button type="submit" class="dynamic-btn submit-variant">
+                        <span class="mask-top"></span>
+                        <span class="btn-text">Apply Now</span>
+                        <span class="mask-bottom"></span>
+                    </button>
+                </form>
             </div>
 
-            <label style="margin-top: 15px; display: block;">Statement of Purpose (SOP)</label>
-            <textarea name="sop" rows="6" placeholder="Tell us about your career goals and interest in IT..."></textarea>
+            <div id="loader"></div>
 
-            <label>Upload Academic Transcript (PDF)</label>
-            <input type="file" name="transcript" accept=".pdf,.jpg,.png">
+            <div id="thank-you-message">
+                <div style="font-size: 60px; color: #e31515;">✓</div>
+                <h2>Application Sent!</h2>
+                <p>Thank you, <span id="display-name" style="color: #e31515; font-weight: bold;"></span>.</p>
+                <p>Your interest in <strong><span id="display-course"></span></strong> has been recorded. We will contact you soon.</p>
+                <button onclick="window.location.href='index.html'" class="dynamic-btn">
+                    <span class="mask-top"></span>
+                    <span class="btn-text">Back to Home</span>
+                    <span class="mask-bottom"></span>
+                </button>
+            </div>
+        </div>
+    </section>
 
-            <input type="hidden" name="_captcha" value="false">
-
-            <button type="submit" class="button" style="width: 100%; margin-top: 20px;">
-                <div class="wrap">
-                    <p><span>Submit Application</span><span>Send to Admissions</span></p>
-                </div>
-            </button>
-        </form>
-    </div>
-</section>
-
-<footer id="main-footer">
-    <div class="container">
-        <div style="border: 1px dashed #e31515; padding: 15px; margin-bottom: 20px;">
-            <p><strong>DISCLAIMER:</strong> Zenith Digital University is a <strong>fake university portal</strong>. This admission form is a frontend demonstration created by <strong>Raj</strong> and does not process real university enrollments.</p>
+    <footer id="main-footer">
+        <div style="border: 1px dashed #e31515; padding: 15px; max-width: 600px; margin: 0 auto 20px;">
+            <strong>DISCLAIMER:</strong> Zenith Digital University is a demo portal by Raj.
         </div>
         <p>&copy; 2026 Zenith Digital University | Designed on Arch Linux</p>
-    </div>
-</footer>
+    </footer>
+
+    <script>
+        const form = document.getElementById('admissionForm');
+        const formContent = document.getElementById('form-content');
+        const loader = document.getElementById('loader');
+        const thankYou = document.getElementById('thank-you-message');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop actual redirect for demo purposes
+
+            // Capture Data
+            const name = form.elements['full_name'].value;
+            const course = form.elements['course'].value;
+
+            // Step 1: Hide Form
+            formContent.style.display = 'none';
+            
+            // Step 2: Show Loader
+            loader.style.display = 'block';
+
+            // Step 3: Wait 2 seconds, then show Thank You
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.getElementById('display-name').innerText = name;
+                document.getElementById('display-course').innerText = course;
+                thankYou.style.display = 'block';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
