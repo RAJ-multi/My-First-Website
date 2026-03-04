@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Zenith Digital University/course
+( A demo university portal created as a frontend practice project by Raj ) </title>
+    <link rel="stylesheet" type="text/css" href="CSS/Style.css">
+</head> 
+<body>
+    <header id="Header">
+        <div class="container">
+        <img src="https://i.postimg.cc/L6KP835s/Zenith-Digital-University.png" alt="Zenith Digital University Logo" class="logo">
+        </div>
+    </header>
+ <nav id="navbar">
+        <div class="container">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+           <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="Contact Us.html">Contact Us</a></li>
+        </ul>
+        </div>
+    <nav id=Home_navbar>
+        <div class="container">
+    pages: <a href="https://raj-zenith-digital-university.netlify.app/">Root</a> / <a href="#home">About Us</a>
+        </div>
+    </nav>
+
+<section id="courses" class="container">
+    <div class="section-header" style="text-align: center; padding: 40px 0;">
+        <h1>Academic Course Explorer</h1>
+        <p>Select your level and field to find your pathway.</p>
+    </div>
+
+    <div class="filter-container">
+        <div class="filter-group">
+            <span>Study Level:</span>
+            <button class="btn active" onclick="filterSelection('all')">All</button>
+            <button class="btn" onclick="filterSelection('undergrad')">Undergraduate</button>
+            <button class="btn" onclick="filterSelection('postgrad')">Postgraduate</button>
+            <button class="btn" onclick="filterSelection('phd')">PhD</button>
+            <button class="btn" onclick="filterSelection('pathway')">Pathway Diploma</button>
+        </div>
+        <div class="filter-group">
+            <span>Faculty:</span>
+            <button class="btn" onclick="filterSelection('science')">Science</button>
+            <button class="btn" onclick="filterSelection('commerce')">Commerce</button>
+            <button class="btn" onclick="filterSelection('arts')">Arts</button>
+        </div>
+    </div>
+
+    <div class="course-grid">
+        <div class="course-card science undergrad">
+            <div class="course-info">
+                <h3>BSc Computer Science</h3>
+                <p><strong>Campus:</strong> JINNN Campus</p>
+                <span class="badge">Undergraduate</span>
+            </div>
+        </div>
+
+        <div class="course-card science pathway">
+            <div class="course-info">
+                <h3>Diploma in IT (Pathway)</h3>
+                <p><strong>Campus:</strong> KIM Campus</p>
+                <span class="badge">Pathway</span>
+            </div>
+        </div>
+
+        <div class="course-card commerce postgrad">
+            <div class="course-info">
+                <h3>Master of Business Analytics</h3>
+                <p><strong>Campus:</strong> Shar Campus</p>
+                <span class="badge">Postgraduate</span>
+            </div>
+        </div>
+
+        <div class="course-card arts phd">
+            <div class="course-info">
+                <h3>PhD in Digital Ethics</h3>
+                <p><strong>Campus:</strong> JINNN Campus</p>
+                <span class="badge">PhD</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="main-footer">
+    <div class="container">
+        <div class="disclaimer" style="border: 2px dashed #e31515; padding: 15px; margin-bottom: 20px; background: rgba(227, 21, 21, 0.1);">
+            <p><strong>DISCLAIMER:</strong> This is a <strong>fake university portal</strong>. Zenith Digital University is a demo project created by <strong>Raj</strong> for frontend practice and is not a real educational institution.</p>
+        </div>
+        <p>&copy; 2026 Zenith Digital University | Designed on Arch Linux</p>
+    </div>
+</footer>
+
+<script>
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("course-card");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+    if (x[i].className.indexOf(c) > -1) {
+        x[i].style.display = "block";
+    }
+  }
+}
+
+// Add active class to the current button
+var btnContainer = document.querySelector(".filter-container");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+</body>
+
+
