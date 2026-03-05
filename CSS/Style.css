@@ -631,3 +631,153 @@ form .button {
     outline: none;
     box-shadow: 0 0 5px rgba(227, 21, 21, 0.2);
 }
+
+
+/* Responsive improvements */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+#navbar .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.filter-container {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group span {
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: min(92%, 1100px);
+    }
+
+    .logo {
+        height: 130px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #Header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo {
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    #navbar ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    #navbar ul li,
+    .container li:first-child,
+    .container li:last-child,
+    .container li:nth-child(2),
+    .container li:nth-child(3) {
+        margin: 0;
+    }
+
+    .video-background {
+        min-height: 65vh;
+        height: auto;
+        padding: 32px 16px;
+    }
+
+    .content {
+        width: 100%;
+        max-width: 640px;
+        padding: 16px;
+    }
+
+    .content h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .content h2,
+    .content p {
+        font-size: 1rem;
+    }
+
+    .split-grid,
+    .contact-grid,
+    .form-two-col {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button .wrap {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    #Home_navbar {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .section-title,
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .info-box,
+    .content-box,
+    .course-card {
+        padding: 18px;
+    }
+
+    form input,
+    form textarea,
+    form select,
+    form .button {
+        width: 100%;
+    }
+}
+
+
+.form-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
