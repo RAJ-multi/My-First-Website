@@ -275,6 +275,7 @@
                     <input type="email" name="email" placeholder="rajsen1016@gmail.com" required>
 
                     <label>Desired Course</label>
+                    <select name="course" required>
                         <option value="">Select a Program...</option>
                         <option value="BSc in AI Architecture">BSc in AI Architecture</option>
                         <option value="Diploma in Cloud Computing">Diploma in Cloud Computing</option>
@@ -299,7 +300,8 @@
                     <input type="file" name="attachment" accept=".pdf, .docx, .jpg, .png">
 
                     <input type="hidden" name="_captcha" value="false">
-                                       <button type="submit" class="dynamic-btn submit-variant" id="submit-btn">
+
+                    <button type="submit" class="dynamic-btn submit-variant" id="submit-btn">
                         <span class="mask-top"></span>
                         <span class="btn-text">Apply Now</span>
                         <span class="mask-bottom"></span>
@@ -338,16 +340,20 @@
         const thankYou = document.getElementById('thank-you-message');
         const submitFeedback = document.getElementById('submit-feedback');
         const submitBtn = document.getElementById('submit-btn');
-              form.addEventListener('submit', async function(e) {
+
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-                    const name = form.elements['full_name'].value;
+
+            const name = form.elements['full_name'].value;
             const course = form.elements['course'].value;
-    submitFeedback.style.display = 'none';
+
+            submitFeedback.style.display = 'none';
             submitBtn.disabled = true;
 
             formContent.style.display = 'none';
-                   loader.style.display = 'block';
-      try {
+            loader.style.display = 'block';
+
+            try {
                 const response = await fetch(form.action, {
                     method: 'POST',
                     body: new FormData(form),
@@ -364,7 +370,7 @@
                 document.getElementById('display-name').innerText = name;
                 document.getElementById('display-course').innerText = course;
                 thankYou.style.display = 'block';
-                     form.reset();
+                form.reset();
             } catch (error) {
                 loader.style.display = 'none';
                 formContent.style.display = 'block';
@@ -378,4 +384,3 @@
     </script>
 </body>
 </html>
-        
