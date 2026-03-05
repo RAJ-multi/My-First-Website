@@ -195,12 +195,11 @@
 
         /* --- THANK YOU MESSAGE & LOADING --- */
         #thank-you-message {
-            color: rgb(92, 187, 41);
             display: none;
             text-align: center;
             padding: 40px 20px;
             animation: fadeIn 0.8s ease forwards;
-                color: #1f1f1f !important;
+            color: #1f1f1f !important;
         }
 
         #thank-you-message * {
@@ -215,13 +214,20 @@
 
         #loader {
             display: none;
-            border: 4px solid #e91818;
+            border: 4px solid #f3f3f3;
             border-top: 4px solid #e31515;
             border-radius: 50%;
             width: 40px;
             height: 40px;
             animation: spin 1s linear infinite;
             margin: 20px auto;
+        }
+
+        #submit-feedback {
+            display: none;
+            text-align: center;
+            margin-top: 12px;
+            font-weight: 600;
         }
 
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -244,10 +250,10 @@
 
     <nav id="navbar">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="courses.html">Courses</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Contact Us</a></li>
         </ul>
     </nav>
 
@@ -269,7 +275,6 @@
                     <input type="email" name="email" placeholder="rajsen1016@gmail.com" required>
 
                     <label>Desired Course</label>
-                    <select name="course" required>
                         <option value="">Select a Program...</option>
                         <option value="BSc in AI Architecture">BSc in AI Architecture</option>
                         <option value="Diploma in Cloud Computing">Diploma in Cloud Computing</option>
@@ -294,12 +299,12 @@
                     <input type="file" name="attachment" accept=".pdf, .docx, .jpg, .png">
 
                     <input type="hidden" name="_captcha" value="false">
-
-                    <button type="submit" class="dynamic-btn submit-variant">
+                                       <button type="submit" class="dynamic-btn submit-variant" id="submit-btn">
                         <span class="mask-top"></span>
                         <span class="btn-text">Apply Now</span>
                         <span class="mask-bottom"></span>
                     </button>
+                    <p id="submit-feedback" role="alert"></p>
                 </form>
             </div>
 
@@ -331,28 +336,46 @@
         const formContent = document.getElementById('form-content');
         const loader = document.getElementById('loader');
         const thankYou = document.getElementById('thank-you-message');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop actual redirect for demo purposes
-
-            // Capture Data
-            const name = form.elements['full_name'].value;
+        const submitFeedback = document.getElementById('submit-feedback');
+        const submitBtn = document.getElementById('submit-btn');
+              form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+                    const name = form.elements['full_name'].value;
             const course = form.elements['course'].value;
+    submitFeedback.style.display = 'none';
+            submitBtn.disabled = true;
 
-            // Step 1: Hide Form
             formContent.style.display = 'none';
-            
-            // Step 2: Show Loader
-            loader.style.display = 'block';
+                   loader.style.display = 'block';
+      try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                });
 
-            // Step 3: Wait 2 seconds, then show Thank You
-            setTimeout(() => {
+                if (!response.ok) {
+                    throw new Error('Submission failed');
+                }
+
                 loader.style.display = 'none';
                 document.getElementById('display-name').innerText = name;
                 document.getElementById('display-course').innerText = course;
                 thankYou.style.display = 'block';
-            }, 2000);
+                     form.reset();
+            } catch (error) {
+                loader.style.display = 'none';
+                formContent.style.display = 'block';
+                submitFeedback.innerText = 'Form submission failed. Please check your internet and verify the FormSubmit email activation.';
+                submitFeedback.style.color = '#b00020';
+                submitFeedback.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+            }
         });
     </script>
 </body>
 </html>
+        
